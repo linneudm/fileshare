@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block body %}
+<div class="container container-body">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <p class="header-title">
+        || Últimos arquivos upados
+      </p>
+        {% if user.is_authenticated %}
+        {% for list in list_files %}
+        <ul>
+        <li><a href="{% url 'share:file_details' list.id %}">{{ list.description }}</a></li>
+        </ul>
+        {% endfor %}
+        {% else %}
+        <li><a href="{% url 'accounts:login' %}">Logue-se para ter acesso ao sistema.</a></li>
+        {% endif %}
+    </div>
+  </div>
+  
+</div>
+
+{% endblock %}

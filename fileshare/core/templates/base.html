@@ -1,0 +1,83 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-datepicker.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-datetimepicker.css' %}">
+
+
+	<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-login.css' %}">
+
+
+    <style type="text/css">
+
+  </style>
+	
+	<title>Sistema de Compartilhamento de Arquivos</title>
+</head>
+<body>
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<!-- add if de admin / usuario -->
+		<div class="container-fluid">
+			<!-- agrupar para mobile -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<p class="navbar-brand hidden-md hidden-sm">
+					
+				</p>
+			</div>
+			<!-- links da navbar -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+
+				<!-- ícone na navbar -->
+				{% include "navbar_user.html" %}
+			</div><!-- /.navbar-collapse -->
+		</div>
+	</nav>
+	<!-- NAVBAR -->
+
+	<!-- Mensagens -->
+	<div class="container">
+    	<div class="row">
+        	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				{% if messages %}
+			        {% for message in messages %}
+			        <div class="alert alert-info">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<strong>Atenção</strong> 
+			        	<p>{{ message }}</p>
+					</div>
+			        {% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+	{% block body %}
+
+	{% endblock %}
+	{% block scripts %}
+	<script type="text/javascript" src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.form.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.cicle.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.easing.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap-login.js' %}"></script>
+	{% endblock %}
+</body>
+</html>

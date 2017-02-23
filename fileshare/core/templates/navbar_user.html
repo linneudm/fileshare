@@ -1,0 +1,30 @@
+	<ul class="nav navbar-nav navbar-nav-cent">
+		<li><a href="{% url 'core:index' %}"><p class="fa fa-home"></p> Início</a></li>
+		{% if user.is_authenticated %}
+		<li><a href="{% url 'share:file_list' %}"><p class="fa fa-file-text"></p> Arquivos</a></li>
+		{% endif %}
+	</ul>
+	<ul class="nav navbar-nav pull-right">
+	{% if user.is_authenticated %}
+	  <li class="dropdown">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	      <i class="fa fa-lock" aria-hidden="true"></i>
+	      Logado como: {{ user.username }}
+	      <b class="caret"></b>
+	    </a>
+	  </li>
+		<li>
+			<a href="{% url 'accounts:logout' %}">
+				<p class="fa fa-sign-out" aria-hidden="true"></p> Sair
+			</a>
+		</li>
+	</ul>
+	<ul class="nav navbar-nav pull-right">
+	{% else %}
+		<li>
+			<a href="{% url 'accounts:login' %}">
+				<p class="fa fa-sign-out" aria-hidden="true"></p> Entrar
+			</a>
+		</li>
+	</ul>
+	{% endif %}
